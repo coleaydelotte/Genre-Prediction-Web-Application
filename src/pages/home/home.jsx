@@ -2,16 +2,19 @@ import { useState } from "react";
 import './home.css';
 
 function Home() {
-  const [count, setCount] = useState(0);
+  const [modalState, setModalState] = useState(false);
   return (
-    <div>
-      <h1>Home</h1>
-      <p>{count}</p>
-      <button onClick={
-        () => setCount(count + 1)
-      }>
-        Increment
-      </button>
+    <div className="home">
+      {modalState && (
+        <div>
+          <div className="modal-overlay" onClick={() => setModalState(false)}></div>
+          <div className="modal">
+            <h3>This is a modal.</h3>
+            <button className="modal-button" onClick={() => setModalState(false)}>Close</button>
+          </div>
+        </div>
+      )}
+      <button className="modal-button" onClick={() => {setModalState(!modalState)}}> Open Modal </button>
     </div>
   );
 }
