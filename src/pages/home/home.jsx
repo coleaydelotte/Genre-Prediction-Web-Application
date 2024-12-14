@@ -1,20 +1,17 @@
 import { useState } from "react";
+import Modal from "../../components/modal/modal";
 import './home.css';
 
 function Home() {
   const [modalState, setModalState] = useState(false);
+  const components = <div>Very Cool!</div>;
+
   return (
     <div className="home">
       {modalState && (
-        <div>
-          <div className="modal-overlay" onClick={() => setModalState(false)}></div>
-          <div className="modal">
-            <h3>This is a modal.</h3>
-            <button className="modal-button" onClick={() => setModalState(false)}>Close</button>
-          </div>
-        </div>
+        <Modal setModalState={setModalState} description={ "This is a modal" } components={components} cName={"modal"} />
       )}
-      <button className="modal-button" onClick={() => {setModalState(!modalState)}}> Open Modal </button>
+      <button className="button" onClick={() => {setModalState(!modalState)}}> Open Modal </button>
     </div>
   );
 }

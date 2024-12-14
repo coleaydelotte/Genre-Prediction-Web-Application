@@ -31,7 +31,7 @@ h3 {
     background-color: #3d3b3b;
 }
 
-.modal-button {
+.button {
     background-color: #9292bd;
     border: none;
     color: white;
@@ -60,14 +60,4 @@ h3 {
     align-items: center;
     flex-direction: column;
     display: flex;
-  }
-
-  .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 999;
   }
