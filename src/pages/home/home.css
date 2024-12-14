@@ -44,6 +44,7 @@ h3 {
     cursor: pointer;
     font-family: "Quicksand", sans-serif;
     border-radius: 10px;
+    height: 50px;
 }
 
 .modal {
@@ -61,3 +62,25 @@ h3 {
     flex-direction: column;
     display: flex;
   }
+
+.flex-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #3d3b3b;
+}
+
+.download {
+    background-color: #9292bd;
+    height: 20px;
+    border: none;
+    padding: 15px 32px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+}

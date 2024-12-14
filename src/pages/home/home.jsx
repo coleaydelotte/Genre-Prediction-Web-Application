@@ -6,12 +6,21 @@ function Home() {
   const [modalState, setModalState] = useState(false);
   const components = <div>Very Cool!</div>;
 
+  const download = () => {
+    console.log("Download");
+  }
+
   return (
     <div className="home">
       {modalState && (
         <Modal setModalState={setModalState} description={ "This is a modal" } components={components} cName={"modal"} />
       )}
-      <button className="button" onClick={() => {setModalState(!modalState)}}> Open Modal </button>
+      <div className="flex-content">
+        <button className="button" onClick={() => {setModalState(!modalState)}}> Open Modal </button>
+        <img src="https://cdn-icons-png.flaticon.com/512/0/532.png" alt="Download" className="download"
+          onClick={() => {download()}}
+        />
+      </div>
     </div>
   );
 }
