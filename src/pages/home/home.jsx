@@ -10,6 +10,8 @@ function Home() {
     console.log("Download");
   }
 
+  // Everything should probably be named upload...
+
   return (
     <div className="home">
       {modalState && (
