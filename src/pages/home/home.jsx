@@ -4,7 +4,9 @@ import './home.css';
 
 function Home() {
   const [modalState, setModalState] = useState(false);
-  const components = <div>Very Cool!</div>;
+  const components = <button>
+    Create
+  </button>;
 
   const download = () => {
     console.log("Download");
