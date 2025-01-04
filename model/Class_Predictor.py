@@ -1,3 +1,5 @@
+from xgboost import XGBClassifier
+
 class ClassPredictor():
     def __init__(self, model=XGBClassifier(), *, param_grid=None):
         self.model = model

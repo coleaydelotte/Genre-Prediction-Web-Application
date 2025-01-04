@@ -1,3 +1,5 @@
+from ClassPredictor import ClassPredictor
+
 class LowLevelHandler():
     def __init__(self, model, *, lower_params, class_ratio=0.20, random_state=None):
         self.model = model
