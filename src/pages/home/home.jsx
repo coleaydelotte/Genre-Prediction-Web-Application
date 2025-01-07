@@ -8,8 +8,8 @@ function Home() {
     Create
   </button>;
 
-  const download = () => {
-    console.log("Download");
+  const Upload = () => {
+    console.log("Upload");
   }
 
   // Everything should probably be named upload...
@@ -21,7 +21,7 @@ function Home() {
       )}
       <div className="flex-content">
         <button className="button" onClick={() => {setModalState(!modalState)}}> Open Modal </button>
-        <img src="https://cdn-icons-png.flaticon.com/512/0/532.png" alt="Download" className="download"
+        <img src="https://cdn-icons-png.flaticon.com/512/0/532.png" alt="Upload" className="upload"
           onClick={() => {download()}}
         />
       </div>
