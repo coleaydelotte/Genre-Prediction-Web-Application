@@ -3,11 +3,11 @@ function SignIn () {
         <div>
             <h1>Sign In</h1>
             <form>
-                <label>
+                <label className="input-label">
                     Email
                     <input type="email" />
                 </label>
-                <label>
+                <label className="input-label">
                     Password
                     <input type="password" />
                 </label>
