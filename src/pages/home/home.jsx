@@ -12,8 +12,6 @@ function Home() {
     console.log("Upload");
   }
 
-  // Everything should probably be named upload...
-
   return (
     <div className="home">
       {modalState && (
