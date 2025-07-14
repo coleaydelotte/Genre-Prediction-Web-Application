@@ -1,4 +1,5 @@
 function SignUp() {
+    // we are going to probably use something like clerk and firebase for users and storage.
     return (
         <div>
             <h1>Sign Up</h1>
