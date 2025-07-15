@@ -20,7 +20,9 @@ function Home() {
       <div className="flex-content">
         <button className="button" onClick={() => {setModalState(!modalState)}}> Open Modal </button>
         <img src="https://cdn-icons-png.flaticon.com/512/0/532.png" alt="Upload" className="upload"
-          onClick={() => {download()}}
+          onClick={() => {
+            Upload();
+          }}
         />
       </div>
     </div>
