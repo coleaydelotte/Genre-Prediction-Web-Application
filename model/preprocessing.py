@@ -10,3 +10,10 @@ def preprocessing_into_spectograms(file_path, chunk_length=3000):
         mel_spectrogram = librosa.feature.melspectrogram(y=chunk.get_array_of_samples(), sr=chunk.frame_rate)
         spectrograms.append(mel_spectrogram)
     return spectrograms
+
+def predict_genre_from_spectrograms(spectrograms, model):
+    predictions = []
+    for spectrogram in spectrograms:
+        prediction = model.predict(spectrogram)
+        predictions.append(prediction)
+    return max(set(predictions), key=predictions.count)
