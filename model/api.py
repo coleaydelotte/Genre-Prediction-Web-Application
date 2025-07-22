@@ -45,3 +45,6 @@ def predict():
     prediction = predict_genre_from_spectrograms(spectrograms, model)
 
     return jsonify({'message': 'Prediction made successfully', 'prediction': prediction}), 200
+
+if __name__ == '__main__':
+    app.run(debug=True)
