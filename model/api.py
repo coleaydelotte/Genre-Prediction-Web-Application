@@ -3,6 +3,10 @@ from pydub.silence import make_chunks
 import librosa
 from flask import Flask, request, jsonify
 
+headers = {
+    'Content-Type': 'application/json'
+}
+
 def preprocessing_into_spectograms(file_path, chunk_length=3000):
     audio = AudioSegment.from_file(file_path)
     chunks = make_chunks(audio, chunk_length)
@@ -27,7 +31,7 @@ def upload():
     file = request.files['file']
     if file.filename == '':
         return jsonify({'error': 'No selected file'}), 400
-    return jsonify({'message': 'File uploaded successfully'}), 200
+    return jsonify({'message': 'File uploaded successfully'}, headers), 200
 
 @app.route('/predict', methods=['POST'])
 def predict():
@@ -44,7 +48,7 @@ def predict():
     spectrograms = preprocessing_into_spectograms(file_path)
     prediction = predict_genre_from_spectrograms(spectrograms, model)
 
-    return jsonify({'message': 'Prediction made successfully', 'prediction': prediction}), 200
+    return jsonify({'message': 'Prediction made successfully', 'prediction': prediction}, headers), 200
 
 if __name__ == '__main__':
     app.run(debug=True)
