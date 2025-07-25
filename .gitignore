@@ -3,3 +3,6 @@
 
 # prod
 /build
+
+# data
+*/data
