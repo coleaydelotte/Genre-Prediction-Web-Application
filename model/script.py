@@ -43,6 +43,6 @@ print(f"{len(chunks)} chunks created and saved to {output_path}")
 for i, (chunk, sr) in enumerate(chunks):
     spectrogram = create_spectrogram(chunk, sr)
     spectrogram_file = os.path.join(output_path + "spectrograms/", f"{file_name}_chunk_{i}_spectrogram.png")
-    plt.imsave(spectrogram_file, spectrogram, cmap='viridis')
+    plt.imsave(spectrogram_file, spectrogram, cmap='magma')
     print(f"Spectrogram for chunk {i} saved to {spectrogram_file}")
 print("Spectrograms created and saved successfully.")
