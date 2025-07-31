@@ -1,5 +1,5 @@
 import os
-
+import pickle as pkl
 from matplotlib import pyplot as plt
 import librosa
 import soundfile as sf
@@ -21,11 +21,16 @@ def preprocessing_into_spectrograms(file_path, chunk_length_ms=3000):
     
     return chunks
 
+def load_model(file_name):
+    with open(file_name, 'rb') as f:
+        return pkl.load(f)
+
 def create_spectrogram(chunk, sr):
     S = librosa.feature.melspectrogram(y=chunk, sr=sr, n_mels=128, fmax=8000)
     S_dB = librosa.power_to_db(S, ref=np.max)
     return S_dB
 
+model = load_model("model.pkl")
 input_path = "./data/song.mp3"
 file_name = os.path.splitext(os.path.basename(input_path))[0]
 output_path = f"./data/{file_name}_chunks/"
