@@ -30,6 +30,19 @@ def create_spectrogram(chunk, sr):
     S_dB = librosa.power_to_db(S, ref=np.max)
     return S_dB
 
+def extract_features(spectrogram):
+    return np.array([spectrogram.flatten()])
+
+def decode_prediction(prediction):
+    genre_labels = ["rock", "pop", "hiphop", "classical", "jazz"]
+    return genre_labels[np.argmax(prediction)]
+
+def predict_genre(spectrogram):
+    model = load_model("model.pkl")
+    features = extract_features(spectrogram)
+    prediction = model.predict(features)
+    return decode_prediction(prediction)
+
 model = load_model("model.pkl")
 input_path = "./data/song.mp3"
 file_name = os.path.splitext(os.path.basename(input_path))[0]
@@ -51,3 +64,9 @@ for i, (chunk, sr) in enumerate(chunks):
     plt.imsave(spectrogram_file, spectrogram, cmap='magma')
     print(f"Spectrogram for chunk {i} saved to {spectrogram_file}")
 print("Spectrograms created and saved successfully.")
+
+predictions = []
+for i in range(len(chunks)):
+    spectrogram_file = os.path.join(output_path + "spectrograms/", f"{file_name}_chunk_{i}_spectrogram.png")
+    prediction = predict_genre(spectrogram_file)
+    predictions.append(prediction)
