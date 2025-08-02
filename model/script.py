@@ -34,7 +34,7 @@ def extract_features(spectrogram):
     return np.array([spectrogram.flatten()])
 
 def decode_prediction(prediction):
-    genre_labels = ["rock", "pop", "hiphop", "classical", "jazz"]
+    genre_labels = ['blues', 'classical', 'country', 'disco', 'hiphop', 'jazz', 'metal', 'pop', 'reggae', 'rock']
     return genre_labels[np.argmax(prediction)]
 
 def predict_genre(spectrogram):
