@@ -50,7 +50,7 @@ def predict():
         return jsonify({'error': 'No model provided'}), 400
     file_path = f"./uploads/{file.filename}"
     file.save(file_path)
-    spectrograms = preprocessing_into_spectograms(file_path)
+    spectrograms = preprocessing_into_spectrograms(file_path)
     prediction = predict_genre_from_spectrograms(spectrograms, model)
 
     return jsonify({'message': 'Prediction made successfully', 'prediction': prediction}, headers), 200
