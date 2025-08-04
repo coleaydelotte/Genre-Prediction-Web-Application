@@ -26,9 +26,9 @@ def load_model(file_name):
         return pkl.load(f)
 
 def create_spectrogram(chunk, sr):
-    S = librosa.feature.melspectrogram(y=chunk, sr=sr, n_mels=128, fmax=8000)
-    S_dB = librosa.power_to_db(S, ref=np.max)
-    return S_dB
+    s = librosa.feature.melspectrogram(y=chunk, sr=sr, n_mels=128, fmax=8000)
+    s_dB = librosa.power_to_db(s, ref=np.max)
+    return s_dB
 
 def extract_features(spectrogram):
     return np.array([spectrogram.flatten()])
