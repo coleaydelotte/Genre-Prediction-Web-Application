@@ -43,6 +43,8 @@ def upload():
     if 'file' not in request.files:
         return jsonify({'error': 'No file part'}), 400
     file = request.files['file']
+    with open(f"./uploads/{file.filename}", "wb") as f:
+        f.write(file.read())
     if file.filename == '':
         return jsonify({'error': 'No selected file'}), 400
     return jsonify({'message': 'File uploaded successfully'}, headers), 200
