@@ -38,6 +38,14 @@ def create_spectrogram(chunk, sr):
     return s_dB
 
 app = Flask(__name__)
+
+@app.route('/clear', methods=['POST'])
+def clear():
+    for filename in os.listdir("./uploads/"):
+        file_path = os.path.join("./uploads/", filename)
+        os.remove(file_path)
+    return jsonify({'message': 'Uploads cleared successfully'}), 200
+
 @app.route('/upload', methods=['POST'])
 def upload():
     if 'file' not in request.files:
