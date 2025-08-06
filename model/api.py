@@ -93,5 +93,10 @@ def predict():
     
     return jsonify({'message': 'Prediction made successfully', 'prediction': prediction}, headers), 200
 
+@app.route('/uploads', methods=['GET'])
+def get_uploads():
+    files = os.listdir("./uploads/")
+    return jsonify({'uploads': files}), 200
+
 if __name__ == '__main__':
     app.run(debug=True)
