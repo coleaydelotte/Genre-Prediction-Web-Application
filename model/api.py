@@ -98,5 +98,13 @@ def get_uploads():
     files = os.listdir("./uploads/")
     return jsonify({'uploads': files}), 200
 
+@app.route('/uploads/<filename>', methods=['DELETE'])
+def delete_upload(filename):
+    file_path = f"./uploads/{filename}"
+    if os.path.exists(file_path):
+        os.remove(file_path)
+        return jsonify({'message': 'File deleted successfully'}), 200
+    return jsonify({'error': 'File not found'}), 404
+
 if __name__ == '__main__':
     app.run(debug=True)
