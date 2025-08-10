@@ -52,7 +52,12 @@ def upload():
         return jsonify({'error': 'No file part'}), 400
     file = request.files['file']
     with open(f"./uploads/{file.filename}", "wb") as f:
-        f.write(file.read())
+        chunk_size = 4096
+        while True:
+            chunk = file.read(chunk_size)
+            if not chunk:
+                break
+            f.write(chunk)
     if file.filename == '':
         return jsonify({'error': 'No selected file'}), 400
     return jsonify({'message': 'File uploaded successfully'}, headers), 200
