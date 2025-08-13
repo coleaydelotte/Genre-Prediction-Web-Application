@@ -1,0 +1,5 @@
+librosa
+numpy
+flask
+flask-cors
+soundfile
