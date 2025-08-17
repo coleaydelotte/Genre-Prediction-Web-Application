@@ -5,4 +5,5 @@ source .venv/bin/activate
 pip install --upgrade pip
 pip install -r ./model/requirements.txt
 chmod +x ./model/upload_cleaner_script.sh
-./model/upload_cleaner_script.sh & python3 ./model/api.py
+nohup python3 ./model/api.py > ./model/api.log 2>&1 &
+./model/upload_cleaner_script.sh
