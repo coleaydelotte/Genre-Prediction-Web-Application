@@ -4,9 +4,7 @@ import './home.css';
 
 function Home() {
   const [modalState, setModalState] = useState(false);
-  const components = <button>
-    Create
-  </button>;
+  const components = <button> Create </button>;
 
   const Upload = () => {
     console.log("Upload");
