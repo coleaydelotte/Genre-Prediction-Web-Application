@@ -13,7 +13,9 @@ function Modal(props) {
     return (
         <div>
           <div className="modal-overlay" onClick={() => props.setModalState(false)}></div>
-          <div className={cName} style={{zIndex: 1000}}> 
+          <div className={cName} style={{
+            zIndex: 1000
+          }}>
             <h3>{description}</h3>
             {components}
             <button className="modal-button" onClick={() => props.setModalState(false)}> Close </button>
