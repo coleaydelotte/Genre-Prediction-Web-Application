@@ -1,5 +1,3 @@
-from pydub import AudioSegment
-from pydub.silence import make_chunks
 import librosa
 from flask import Flask, request, jsonify
 import soundfile as sf
