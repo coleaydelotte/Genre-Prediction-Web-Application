@@ -10,6 +10,9 @@ headers = {
 }
 
 def preprocessing_into_spectrograms(file_path, chunk_length_ms=3000):
+    """
+    Splits an audio file into chunks and converts each chunk into a spectrogram.
+    """
     y, sr = librosa.load(file_path, sr=None)
     chunk_samples = int((chunk_length_ms / 1000) * sr)
     chunks = []
@@ -24,6 +27,9 @@ def preprocessing_into_spectrograms(file_path, chunk_length_ms=3000):
     return chunks
 
 def predict_genre_from_spectrograms(spectrograms, model):
+    """
+    Predicts the genre from a list of spectrograms using the provided model.
+    """
     predictions = []
     for spectrogram in spectrograms:
         prediction = model.predict(spectrogram)
