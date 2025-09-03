@@ -37,6 +37,9 @@ def predict_genre_from_spectrograms(spectrograms, model):
     return max(set(predictions), key=predictions.count)
 
 def create_spectrogram(chunk, sr):
+    """
+    Creates a mel spectrogram from an audio chunk.
+    """
     s = librosa.feature.melspectrogram(y=chunk, sr=sr, n_mels=128, fmax=8000)
     s_dB = librosa.power_to_db(s, ref=np.max)
     return s_dB
@@ -45,6 +48,9 @@ app = Flask(__name__)
 
 @app.route('/clear', methods=['POST'])
 def clear():
+    """
+    Clears all uploaded files.
+    """
     for filename in os.listdir("./uploads/"):
         file_path = os.path.join("./uploads/", filename)
         os.remove(file_path)
@@ -52,6 +58,9 @@ def clear():
 
 @app.route('/upload', methods=['POST'])
 def upload():
+    """
+    Uploads a file in chunks to the server.
+    """
     if 'file' not in request.files:
         return jsonify({'error': 'No file part'}), 400
     file = request.files['file']
@@ -68,6 +77,9 @@ def upload():
 
 @app.route('/predict', methods=['POST'])
 def predict():
+    """
+    Predicts the genre of an uploaded audio file.
+    """
     if 'file' not in request.files:
         return jsonify({'error': 'No file part'}), 400
     file = request.files['file']
@@ -104,11 +116,17 @@ def predict():
 
 @app.route('/uploads', methods=['GET'])
 def get_uploads():
+    """
+    Lists all uploaded files.
+    """
     files = os.listdir("./uploads/")
     return jsonify({'uploads': files}), 200
 
 @app.route('/uploads/<filename>', methods=['DELETE'])
 def delete_upload(filename):
+    """
+    Deletes a specific uploaded file.
+    """
     file_path = f"./uploads/{filename}"
     if os.path.exists(file_path):
         os.remove(file_path)
