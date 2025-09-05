@@ -5,6 +5,7 @@ import numpy as np
 import os
 import matplotlib.pyplot as plt
 
+# These headers are for future cors implementation
 headers = {
     'Content-Type': 'application/json'
 }
