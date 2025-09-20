@@ -9,3 +9,6 @@
 
 # model
 /model
+
+# envs
+.env
