@@ -13,7 +13,7 @@ function Home() {
   return (
     <div className="home">
       {modalState && (
-        <Modal description={ "This is a modal" } components={components} cName={"modal"} />
+        <Modal description={ "This is a modal" } components={components} cName={"modal"} setModalState={setModalState} />
       )}
       <div className="flex-content">
         <button className="button" onClick={() => {
